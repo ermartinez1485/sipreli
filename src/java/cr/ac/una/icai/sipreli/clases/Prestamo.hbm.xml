@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 19, 2016 3:09:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="cr.ac.una.icai.sipreli.clases">
+    <class name="Prestamo" table="prestamo" catalog="sipreli">
+        <composite-id name="id" class="cr.ac.una.icai.sipreli.clases.PrestamoId">
+            <key-many-to-one name="elEstudiante"  column="carnet"/>
+            <key-many-to-one name="elLibro"       column="isbn"/>
+        </composite-id>
+        <property name="fechaPrestamo" type="timestamp" column="fechaPrestamo"/>
+        <property name="fechaDevolucion" type="timestamp" column="fechaDevolucion"/>
+    </class>
+</hibernate-mapping>

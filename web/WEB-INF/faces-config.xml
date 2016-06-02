@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+        <resource-bundle>
+            <base-name>cr.ac.una.icai.sipreli.etiquetas.recursos</base-name>
+            <var>eti</var>
+        </resource-bundle>
+        <message-bundle>cr.ac.una.icai.sipreli.etiquetas.recursos</message-bundle>
+        
+    </application>
+    <converter>
+            <converter-for-class>cr.ac.una.icai.sipreli.clases.Estudiante</converter-for-class>
+            <converter-class>cr.ac.una.icai.sipreli.converter.EstudianteConverter</converter-class>
+    </converter>
+    <converter>
+            <converter-for-class>cr.ac.una.icai.sipreli.clases.Libro</converter-for-class>
+            <converter-class>cr.ac.una.icai.sipreli.converter.LibroConverter</converter-class>
+    </converter>
+    <managed-bean>
+        <managed-bean-name>usuarioBean</managed-bean-name>
+        <managed-bean-class>cr.ac.una.icai.sipreli.beans.UserBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+		<property-name>usuarioAD</property-name>
+		<property-class>cr.ac.una.icai.sipreli.datos.hibernate.interfaces.IUsuarioHb</property-class>
+		<value>#{usuarioAD}</value>
+	</managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>libroBean</managed-bean-name>
+        <managed-bean-class>cr.ac.una.icai.sipreli.beans.LibroBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+		<property-name>libroAD</property-name>
+		<property-class>cr.ac.una.icai.sipreli.datos.hibernate.interfaces.ILibroHb</property-class>
+		<value>#{libroAD}</value>
+	</managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>estudianteBean</managed-bean-name>
+        <managed-bean-class>cr.ac.una.icai.sipreli.beans.EstudianteBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+		<property-name>estudianteAD</property-name>
+		<property-class>cr.ac.una.icai.sipreli.datos.hibernate.interfaces.IEstudianteHb</property-class>
+		<value>#{estudianteAD}</value>
+	</managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name>prestamoBean</managed-bean-name>
+        <managed-bean-class>cr.ac.una.icai.sipreli.beans.PrestamoBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+        <managed-property>
+		<property-name>prestamoAD</property-name>
+		<property-class>cr.ac.una.icai.sipreli.datos.hibernate.interfaces.IPrestamoHb</property-class>
+		<value>#{prestamoAD}</value>
+	</managed-property>
+    </managed-bean>
+</faces-config>

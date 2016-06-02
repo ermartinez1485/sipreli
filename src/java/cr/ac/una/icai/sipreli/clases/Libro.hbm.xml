@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 19, 2016 3:09:43 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="cr.ac.una.icai.sipreli.clases">
+    <class name="Libro" table="libro" catalog="sipreli">
+        <id name="isbn" type="java.lang.Integer" column="isbn">
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="java.lang.String" column="nombre"/>
+        <property name="autor" type="java.lang.String" column="autor"/>
+        <property name="anoPublicacion" type="java.lang.Integer" column="anoPublicacion"/>
+        <property name="editorial" type="java.lang.String" column="editorial"/>
+        <property name="genero" type="java.lang.String" column="genero"/>
+    </class>
+</hibernate-mapping>

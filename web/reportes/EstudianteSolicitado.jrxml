@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9597c49d-ab01-4657-ab98-dbc306aaa3f0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="isbn" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT l.nombre as Libro, e.nombre as Estudiante
+FROM sipreli.libro l, sipreli.estudiante e, sipreli.prestamo p
+where l.isbn = p.isbn
+and e.carnet = p.carnet
+and p.isbn =$P{isbn}]]>
+	</queryString>
+	<field name="Libro" class="java.lang.String"/>
+	<field name="Estudiante" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="555" height="26" uuid="b190a923-7328-42cd-9970-8bd2265bf98f"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Universidad Nacional]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="36" width="555" height="26" uuid="868a954c-3d0f-4239-85a5-57d5fc313457"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[ICAI]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="26" uuid="33f8db7d-db63-4047-8b19-5837cf9ab92b"/>
+				<textElement textAlignment="Center">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Reporte Libro Solicitado]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="284" y="6" width="81" height="20" uuid="7921b36d-f7d7-4fe0-bb44-e2887d133a51"/>
+				<box leftPadding="7">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement textAlignment="Justified">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Libros]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="189" y="6" width="81" height="20" uuid="48fc23ee-66e2-458c-a85b-0eb8c7164913"/>
+				<box leftPadding="7">
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estudiantes]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="189" y="6" width="81" height="20" uuid="6c5a3185-a230-4b8d-b65c-9848be12b1d9"/>
+				<textFieldExpression><![CDATA[$F{Estudiante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="6" width="81" height="20" uuid="70668b89-7783-411d-a943-69abbb3d3bc9"/>
+				<textFieldExpression><![CDATA[$F{Libro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="214" y="14" width="100" height="20" uuid="90c570a5-985d-42bb-9fe4-55707f159702"/>
+				<text><![CDATA[No hay datos]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>
